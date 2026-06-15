@@ -3,16 +3,15 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
-# Load dataset
+
 df = pd.read_csv("Indian_Travel.csv")
 
-# Download nltk resources
+
 nltk.download('punkt')
 nltk.download('stopwords')
 
 stop_words = set(stopwords.words('english'))
 
-# ---------- PIPELINE FUNCTIONS ----------
 
 def tokenize(question):
     return word_tokenize(question.lower())
@@ -78,8 +77,6 @@ def get_answer(destination, intent):
     
     return "Sorry, information not available."
 
-
-# ---------- PIPELINE EXECUTION ----------
 
 question = input("Ask a question: ")
 
