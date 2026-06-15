@@ -78,22 +78,24 @@ def get_answer(destination, intent):
     return "Sorry, information not available."
 
 
-question = input("Ask a question: ")
-
-tokens = tokenize(question)
-keywords = remove_stopwords(tokens)
-
-destination = detect_destination(keywords)
-intent = detect_intent(keywords)
-
-print("Tokens:", tokens)
-print("Keywords:", keywords)
-
-if destination is not None and intent is not None:
+while True:
     
-    answer = get_answer(destination, intent)
+    question = input("Ask a question: ")
     
-    print("Answer:", answer)
-
-else:
-    print("Sorry, I couldn't understand the question.")
+    tokens = tokenize(question)
+    keywords = remove_stopwords(tokens)
+    
+    destination = detect_destination(keywords)
+    intent = detect_intent(keywords)
+    
+    print("Tokens:", tokens)
+    print("Keywords:", keywords)
+    
+    if destination is not None and intent is not None:
+        
+        answer = get_answer(destination, intent)
+        
+        print("Answer:", answer)
+    
+    else:
+        print("Sorry, I couldn't understand the question.")
